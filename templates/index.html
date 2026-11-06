@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="Jack — captura de imagem com autorização explícita.">
+  <title>Jack · Captura autorizada</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="phone-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Jack início"><span class="brand-mark">J</span><span>jack</span></a>
+      <span class="top-note">CAPTURA AUTORIZADA</span>
+      <span class="avatar">J</span>
+    </header>
+
+    <section class="feed">
+      <div class="creator-row">
+        <div class="creator-avatar">J</div>
+        <div class="creator-copy"><strong>Jack Capture</strong><span>Experiência independente · câmera frontal</span></div>
+        <span class="more">•••</span>
+      </div>
+
+      <div class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <span class="eyebrow">SUA CÂMERA, SUA ESCOLHA</span>
+          <h1>Um registro.<br><span>Com sua permissão.</span></h1>
+          <p>Veja a prévia, escolha quando fotografar e confirme antes de enviar.</p>
+          <div class="camera-frame" id="cameraFrame">
+            <div class="camera-placeholder" id="placeholder">
+              <div class="camera-icon">◎</div>
+              <strong>Sua câmera frontal aparecerá aqui</strong>
+              <small>Nenhuma imagem é capturada antes da sua ação.</small>
+            </div>
+            <video id="video" autoplay playsinline muted hidden></video>
+            <canvas id="canvas" hidden></canvas>
+            <img id="preview" alt="Prévia da foto capturada" hidden>
+            <span class="live-tag" id="liveTag" hidden><i></i> PRÉVIA AO VIVO</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="consent-card">
+        <div class="section-heading"><span class="shield">✓</span><div><h2>Antes de continuar</h2><p>Leia o que será compartilhado.</p></div></div>
+        <ul class="disclosure">
+          <li><span>Imagem</span><span>Somente após fotografar e enviar</span></li>
+          <li><span>Endereço IP</span><span>Registrado no envio</span></li>
+          <li><span>Armazenamento</span><span>Bucket privado do administrador</span></li>
+        </ul>
+        <p class="privacy-copy">Jack é um projeto independente e não é afiliado ao TikTok. A câmera só inicia quando você tocar no botão abaixo e aceitar a permissão do navegador. Você poderá fechar a câmera sem enviar nada.</p>
+        <label class="consent-check"><input id="consent" type="checkbox"><span>Entendi e concordo com o envio da foto e o registro do meu IP para esta captura.</span></label>
+        <div class="actions">
+          <button id="startBtn" class="primary" disabled>Ativar câmera frontal <span>↗</span></button>
+          <button id="captureBtn" class="primary" hidden>Fotografar</button>
+          <button id="retakeBtn" class="secondary" hidden>Tirar outra</button>
+          <button id="sendBtn" class="primary" hidden>Confirmar e enviar</button>
+          <button id="stopBtn" class="secondary" hidden>Fechar câmera</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">Marque a caixa para habilitar a câmera.</p>
+      </section>
+      <footer>JACK <span>·</span> PRIVACIDADE E CONTROLE</footer>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
